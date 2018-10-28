@@ -1,2 +1,4 @@
-Style/StructInheritance
+Style/StructInheritance:
+  Enabled: false
+Style/Documentation:
   Enabled: false

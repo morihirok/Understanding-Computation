@@ -1,18 +1,18 @@
-require('./expression')
-require('./statement')
+require './expression'
+require './statement'
 
-class Machine < Struct.new(:expression, :environment)
+class Machine < Struct.new(:statement, :environment)
   def step
-    self.expression = expression.reduce(environment)
+    self.statement, self.environment = statement.reduce(environment)
   end
 
   def run
-    while expression.reducible?
-      puts expression
+    while statement.reducible?
+      puts "#{statement}, #{environment}"
       step
     end
 
-    puts expression
+    puts "#{statement}, #{environment}"
   end
 end
 
