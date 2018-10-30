@@ -1,5 +1,6 @@
 require './expression'
 require './statement'
+require './sequence'
 
 class Machine < Struct.new(:statement, :environment)
   def step
