@@ -1,4 +1,8 @@
 class Variable < Struct.new(:name)
+  def to_ruby
+    "-> e { e[#{name.inspect}] }"
+  end
+
   def evaluate(environment)
     environment[name]
   end
@@ -21,6 +25,10 @@ class Variable < Struct.new(:name)
 end
 
 class Number < Struct.new(:value)
+  def to_ruby
+    "-> e { #{value.inspect} }"
+  end
+
   def evaluate(environment)
     self
   end
@@ -39,6 +47,10 @@ class Number < Struct.new(:value)
 end
 
 class Boolean < Struct.new(:value)
+  def to_ruby
+    "-> e { #{value.inspect} }"
+  end
+
   def evaluate(environment)
     self
   end
